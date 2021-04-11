@@ -6,4 +6,8 @@ code/__pycache__/
 *.py[cod]
 *$py.class
 
+data/
+temporary_data/
+code/note.md
+
 *.pdf
