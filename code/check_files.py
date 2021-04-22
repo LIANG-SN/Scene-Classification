@@ -1,5 +1,5 @@
 import os
-andrew_id = 'XXX'
+andrew_id = 'sliangal'
 
 
 if ( os.path.isfile('../'+andrew_id+'/' + andrew_id + '/visual_words.py') and \

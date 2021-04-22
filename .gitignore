@@ -9,5 +9,7 @@ code/__pycache__/
 data/
 temporary_data/
 code/note.md
+code/test.py
+sliangal/
 
 *.pdf

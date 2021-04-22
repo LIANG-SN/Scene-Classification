@@ -1,23 +1,21 @@
 import numpy as np
 import numpy.matlib as npm
-# import torchvision
+import torchvision
 import util
 import matplotlib.pyplot as plt
 import visual_words
 import visual_recog
-# import deep_recog
+import deep_recog
 import skimage.io
 
 if __name__ == '__main__':
    
+    # uncomment coresponding code to test
+
 	num_cores = util.get_num_CPU()
 
 	# 1.1
-	# path_img = "../data/kitchen/sun_aasmevtpkslccptd.jpg"
-	# path_img = "../data/kitchen/sun_agrkvwbkgrglcoga.jpg"
-	# path_img = "../data/kitchen/sun_aaebjpeispxohmfv.jpg"
-	
-	
+	path_img = "../data/kitchen/sun_aasmevtpkslccptd.jpg"
 	# image = skimage.io.imread(path_img)
 	# image = image.astype('float') / 255
 	# filter_responses = visual_words.extract_filter_responses(image)
@@ -37,21 +35,26 @@ if __name__ == '__main__':
 	# plt.imshow(wordmap, cmap="nipy_spectral")
 	# plt.show()
 
-	#util.save_wordmap(wordmap, filename)
+	# util.save_wordmap(wordmap, filename)
 
 	# 2.4 
 	# test
 	# visual_recog.build_recognition_system(num_workers=num_cores)
 
 	# 2.5 test
-	conf, accuracy = visual_recog.evaluate_recognition_system(num_workers=num_cores)
+	# conf, accuracy = visual_recog.evaluate_recognition_system(num_workers=num_cores)
 	#print(conf)
 	#print(np.diag(conf).sum()/conf.sum())
 
-	#vgg16 = torchvision.models.vgg16(pretrained=True).double()
-	#vgg16.eval()
-	#deep_recog.build_recognition_system(vgg16,num_workers=num_cores//2)
-	#conf = deep_recog.evaluate_recognition_system(vgg16,num_workers=num_cores//2)
-	#print(conf)
-	#print(np.diag(conf).sum()/conf.sum())
+	#3.1 
 
+	vgg16 = torchvision.models.vgg16(pretrained=True).double()
+	vgg16.eval()
+
+	# build
+	# deep_recog.build_recognition_system(vgg16,num_workers=num_cores)
+	
+	# evaluate
+	conf, accu = deep_recog.evaluate_recognition_system(vgg16,num_workers=num_cores)
+	print(conf)
+	print(np.diag(conf).sum()/conf.sum())
